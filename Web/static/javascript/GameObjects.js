@@ -1776,82 +1776,82 @@ little boy. Someone is there waiting for you.' \
 runs up the ominous path towards home.");
 Cage.addItem(KidnappedChild);
 
-//Athena cluster
-var AthenaCluster = new Room("AthenaCluster", "None shall pass without the combination. You \
+//GreatLakes cluster
+var GreatLakesCluster = new Room("GreatLakesCluster", "None shall pass without the combination. You \
 have one chance to enter the combination. Enter password:",
 "loc_cluster.gif");
 var Workstation = new Item("Workstation", "The Workstation has resources you can use to \
-access files in a joint Athena locker. It adds new rooms (when they're in your Home we \
+access files in a joint GreatLakes locker. It adds new rooms (when they're in your Home we \
 call them lockers) to your Home, and you can \
 add them to your collection of lockers if you have permission. If you know what you want to add \
 to your Home (the name of the locker you want, of course), just 'add LOCKERNAME'. It \
 gives you extra spells (if you learn them), and gives you more Rooms to explore.",
 "item_workstation.gif")
-AthenaCluster.addItem(Workstation);
-AthenaCluster.removeCommand("ls");
-AthenaCluster.addCmdText("ls", "You must enter the Athena cluster combo first.");
-AthenaCluster.removeCommand("cd");
-AthenaCluster.addCmdText("cd", "None shall pass without the combination. You\
+GreatLakesCluster.addItem(Workstation);
+GreatLakesCluster.removeCommand("ls");
+GreatLakesCluster.addCmdText("ls", "You must enter the GreatLakes cluster combo first.");
+GreatLakesCluster.removeCommand("cd");
+GreatLakesCluster.addCmdText("cd", "None shall pass without the combination. You\
 have one chance to enter the combination. Enter password:")
-AthenaCluster.ev.addListener("AthenaClusterExited", function(){
-    AthenaCluster.removeCommand("cd");
+GreatLakesCluster.ev.addListener("GreatLakesClusterExited", function(){
+    GreatLakesCluster.removeCommand("cd");
 });
-AthenaCluster.addCommand("tellme");
-AthenaCluster.addCommand("add");
+GreatLakesCluster.addCommand("tellme");
+GreatLakesCluster.addCommand("add");
 var add_locker_func = function(){
     state.applyState("addMagicLocker");
 };
-AthenaCluster.ev.addListener("addMagicLocker", add_locker_func);
+GreatLakesCluster.ev.addListener("addMagicLocker", add_locker_func);
 
-//MIT
-var MIT = new Room("MIT", "You have arrived by magic carpet to MIT!", "loc_MIT.gif");
-var AdmissionLetter = new Item("AdmissionLetter", "Congratulations on entering MIT! \
-Here you will learn special spells that you can only use at MIT. Enjoy!", "item_manuscript.gif")
-MIT.addItem(AdmissionLetter);
-MIT.ev.addListener("tryEnterAthenaCluster", function(){
-    MIT.addCommand("terminus");
-    MIT.addCmdText("terminus", "You have correctly entered the cluster combo. Entering the AthenaCluster.");
-    AthenaCluster.removeCommand("ls");
-    AthenaCluster.addCmdText("ls", "You must enter the Athena cluster combo first.");
-    // AthenaCluster.removeCommand("cd");
-    // AthenaCluster.addCmdText("cd", "None shall pass without the combination. You\
+//UMICH
+var UMICH = new Room("UMich", "You have arrived by magic carpet to the University of Michigan!", "loc_MICH.gif");
+var AdmissionLetter = new Item("AdmissionLetter", "Congratulations on entering the University of Michigan! \
+Here you will learn special spells that you can only use at Michigan. Enjoy!", "item_manuscript.gif")
+UMICH.addItem(AdmissionLetter);
+UMICH.ev.addListener("tryEnterGreatLakesCluster", function(){
+    UMICH.addCommand("terminus");
+    UMICH.addCmdText("terminus", "You have correctly entered the cluster combo. Entering the GreatLakesCluster.");
+    GreatLakesCluster.removeCommand("ls");
+    GreatLakesCluster.addCmdText("ls", "You must enter the GreatLakes cluster combo first.");
+    // GreatLakesCluster.removeCommand("cd");
+    // GreatLakesCluster.addCmdText("cd", "None shall pass without the combination. You\
     // have one chance to enter the combination. Enter password:");
 });
-MIT.ev.addListener("AthenaComboEntered", function(){
-    state.applyState("AthenaComboEntered");
+UMICH.ev.addListener("GreatLakesComboEntered", function(){
+    state.applyState("GreatLakesComboEntered");
 });
-MIT.addCommand("tellme");
-MIT.addCommand("add");
-MIT.ev.addListener("addMagicLocker", add_locker_func);
+UMICH.addCommand("tellme");
+UMICH.addCommand("add");
+UMICH.ev.addListener("addMagicLocker", add_locker_func);
 
-//StataCenter
-var StataCenter = new Room("StataCenter",
-"The center of computer science and artificial intelligence research at MIT. Lots of \
-magic happens here, including TAs, grad students, etc.",
+//NorthQuad
+var NorthQuad = new Room("NorthQuad",
+"Home to the School of Information, where the cultivation of UX, Library Science and Data Science happens at Michigan. Lots of \
+magic happens here, including GSIs, grad students, etc.",
 "loc_stata.gif");
 var WaryEyeOfGradStudent = new Item("WaryEyeOfGradStudent", "If you so desire, you can add \
 a new MagicLocker outside your Home. In this MagicLocker you can find some tools that \
-will be useful in your time at MIT (and beyond). There you can find portals to \
+will be useful in your time at Michigan (and beyond). There you can find portals to \
 other places, you can write notes, and you can store various items you collect in \
-your travels in the MagicLocker. But first you need to go to the AthenaCluster and \
+your travels in the MagicLocker. But first you need to go to the GreatLakesCluster and \
 learn how.",
 "item_grad.gif");
-StataCenter.addItem(WaryEyeOfGradStudent);
-var HelpfulTA = new Item("HelpfulTA", "Ah, welcome to the wonderful land of Stata. \
+NorthQuad.addItem(WaryEyeOfGradStudent);
+var HelpfulGSI = new Item("HelpfulGSI", "Ah, welcome to the wonderful School of Information. \
 There's one room here that you'll need the combination for. All you have to do is ask:\n \
 'tellme combo'.",
 "item_TA.gif");
-StataCenter.addItem(HelpfulTA);
-StataCenter.addCommand("tellme");
-StataCenter.addCommand("add");
-StataCenter.ev.addListener("addMagicLocker", add_locker_func);
+NorthQuad.addItem(HelpfulGSI);
+NorthQuad.addCommand("tellme");
+NorthQuad.addCommand("add");
+NorthQuad.ev.addListener("addMagicLocker", add_locker_func);
 
 //Magic locker
 var MagicLocker = new Room("MagicLocker", "This contains items and spells that can be used \
 anywhere in the world after you add the locker. More is coming.", "item_locker.gif");
 var MoreComing = new Item("MoreComing", "The MagicLocker contains Items that can be \
 used (and spells that can be used) anywhere else in the game once you add \
-the locker. MIT is making updates to the locker at all times, so check back \
+the locker. Michigan is making updates to the locker at all times, so check back \
 frequently.", "item_comingsoon.gif");
 MagicLocker.addItem(MoreComing);
 
@@ -1899,7 +1899,7 @@ link_rooms(Slide, KernelFiles);
 link_rooms(CaveOfDisgruntledTrolls, Slide);
 link_rooms(KernelFiles, MoreKernelFiles);
 
-//MIT level links
-link_rooms(Home, MIT);
-link_rooms(MIT, StataCenter);
-link_rooms(MIT, AthenaCluster);
+//UMICH level links
+link_rooms(Home, UMICH);
+link_rooms(UMICH, NorthQuad);
+link_rooms(UMICH, GreatLakesCluster);

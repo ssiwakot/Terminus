@@ -3,7 +3,7 @@
  * mvBoulder -- 1 means DankRoom and Tunnel are connected. Also means that the 
  			Boulder is in the SmallHole
  * pullLever -- Library and BackRoom are connected
- * AthenaComboEntered -- currently in Athena cluster
+ * GreatLakesComboEntered -- currently in GreatLakes cluster
  * rmLargeBoulder -- RockyPath and Farm are connected. Also means that the LargeBoulder
  			has been removed
  * HouseMade -- Clearing and House are connected (user has made a House)
@@ -161,14 +161,14 @@ stone, weeping. Behind him is a pile of rubble and a small white house.");
     		Slide.addCmdText("cd", "It's just a Slide. Keep going. You're almost at the KernelFiles.");
     		if (re) CaveOfDisgruntledTrolls.removeItem("UglyTroll");
     		break;
-    	case "AthenaComboEntered":
-    		AthenaCluster.addCommand("ls");
-    		AthenaCluster.removeCmdText("ls");
-		    AthenaCluster.addCommand("cd");
-		    // AthenaCluster.addCmdText("cd", "You have correctly entered the cluster combo. You may enter.");
-		    enterRoom(AthenaCluster);
-		    MIT.removeCommand("terminus");
-		    MIT.removeCmdText("terminus");
+    	case "GreatLakesComboEntered":
+    		GreatLakesCluster.addCommand("ls");
+    		GreatLakesCluster.removeCmdText("ls");
+		    GreatLakesCluster.addCommand("cd");
+		    // GreatLakesCluster.addCmdText("cd", "You have correctly entered the cluster combo. You may enter.");
+		    enterRoom(GreatLakesCluster);
+		    UMICH.removeCommand("terminus");
+		    UMICH.removeCmdText("terminus");
 		    break;
 		case "addMagicLocker": 
 			link_rooms(Home, MagicLocker);
