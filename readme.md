@@ -1,1 +1,1 @@
-To play, go to: http://mprat.github.io/Terminus/
+To play, go to: http://ssiwakoti.github.io/Terminus/
