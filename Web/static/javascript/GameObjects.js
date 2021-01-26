@@ -1804,7 +1804,7 @@ var add_locker_func = function(){
 GreatLakesCluster.ev.addListener("addMagicLocker", add_locker_func);
 
 //UMICH
-var UMICH = new Room("UMich", "You have arrived by magic carpet to the University of Michigan!", "loc_MICH.gif");
+var UMICH = new Room("UMICH", "You have arrived by magic carpet to the University of Michigan!", "loc_MICH.gif");
 var AdmissionLetter = new Item("AdmissionLetter", "Congratulations on entering the University of Michigan! \
 Here you will learn special spells that you can only use at Michigan. Enjoy!", "item_manuscript.gif")
 UMICH.addItem(AdmissionLetter);
@@ -1842,6 +1842,10 @@ There's one room here that you'll need the combination for. All you have to do i
 'tellme combo'.",
 "item_TA.gif");
 NorthQuad.addItem(HelpfulGSI);
+var HelpfulIA = new Item("HelpfulIA", "Ah, welcome to the wonderful School of Information. \
+To get out of a room, you can use the command 'cd ..'.",
+"item_TA.gif");
+NorthQuad.addItem(HelpfulIA);
 NorthQuad.addCommand("tellme");
 NorthQuad.addCommand("add");
 NorthQuad.ev.addListener("addMagicLocker", add_locker_func);

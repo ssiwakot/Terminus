@@ -155,8 +155,8 @@ Room.prototype.cd = function(args){
 		return "You have come Home!";
 	}else if (args[0] === "..") {
 		if (this.parents.length >= 1){
-			if (this.room_name === "AthenaCluster"){
-				this.ev.fire("AthenaClusterExited");
+			if (this.room_name === "GreatLakesCluster"){
+				this.ev.fire("GreatLakesClusterExited");
 			}
             enterRoom(this.parents[0]);
 			return "You have moved to " + current_room.toString() + ". " + current_room.intro_text;
@@ -189,8 +189,8 @@ Room.prototype.cd = function(args){
 	                enterRoom(this.children[i]);
 					return "You have moved to " + current_room.toString() + ". " + current_room.intro_text;
 				} else {
-					if (roomname === "AthenaCluster"){
-						this.ev.fire("tryEnterAthenaCluster");
+					if (roomname === "GreatLakesCluster"){
+						this.ev.fire("tryEnterGreatLakesCluster");
 					} 
 					return this.children[i].cmd_text["cd"];
 				}
@@ -400,7 +400,7 @@ Room.prototype.cp = function(args){
 
 Room.prototype.terminus = function(args){
 	var text_to_return = this.cmd_text["terminus"]
-	this.ev.fire("AthenaComboEntered");
+	this.ev.fire("GreatLakesComboEntered");
 	return text_to_return;
 };
 
