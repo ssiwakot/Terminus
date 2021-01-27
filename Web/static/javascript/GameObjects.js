@@ -1844,7 +1844,7 @@ There's one room here that you'll need the combination for. All you have to do i
 NorthQuad.addItem(HelpfulGSI);
 var HelpfulIA = new Item("HelpfulIA", "Ah, welcome to the wonderful School of Information. \
 To get out of a room, you can use the command 'cd ..'.",
-"item_TA.gif");
+"item_TA_2.gif");
 NorthQuad.addItem(HelpfulIA);
 NorthQuad.addCommand("tellme");
 NorthQuad.addCommand("add");
